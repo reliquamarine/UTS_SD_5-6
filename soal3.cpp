@@ -1,11 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <algorithm>
-
 using namespace std;
 
-int main() {
+int main() {    
     int V, E;
     cout << "Jumlah vertex dan edge: ";
     cin >> V >> E;
@@ -20,12 +18,13 @@ int main() {
     }
     
     int S, K;
+    cout << "Node Awal dan Hari Terinfeksi: ";
     cin >> S >> K;
     
     vector<int> level(V, -1);
     queue<int> q;
     q.push(S);
-    level[S] = 0;
+    level[S] = 0;   
     
     while (!q.empty()) {
         int curr = q.front();
@@ -39,8 +38,6 @@ int main() {
         }
     }
     
-    cout << "Node Awal dan Hari Terinfeksi: " << S << " " << K << endl;
-    
     vector<int> infected;
     for (int i = 0; i < V; i++) {
         if (level[i] == K) {
@@ -52,9 +49,9 @@ int main() {
     if (infected.empty()) {
         cout << "(TIDAK ADA)" << endl;
     } else {
-        for (size_t i = 0; i < infected.size(); i++) {  // ubah jadi size_t
+        for (size_t i = 0; i < infected.size(); i++) {
             cout << infected[i];
-            if (i < infected.size() - 1) cout << " ";  
+            if (i < infected.size() - 1) cout << " ";
         }
         cout << endl;
     }
